@@ -1,0 +1,16 @@
+Cucumber Class 1:
+
+To achieve proper reporting, I need cucumber to reuse the code and save time on scripting, executing the piece of code that we want.  Easily readable test cases in Cucumber
+
+Maven
+Pom.xml file – it is the backbone of our Maven project
+Scr – under this, we have the main and test folders
+Main – where we write the code to develop the application
+Test – where we write the code to test the application
+
+Under Test
+Java – for all java stuff
+Resources – for all non java stuff
+
+-----------------------------------------------------------------------------------------------------
+User story - Login functionality
