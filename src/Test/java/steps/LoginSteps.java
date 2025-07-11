@@ -22,6 +22,13 @@ public class LoginSteps {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
 
+    @When("user clicks on login button")
+    public void user_clicks_on_login_button() {
+        WebElement loginButton = driver.findElement(By.id("btnLogin"));
+        loginButton.click();
+
+    }
+
     @When("user enters username and password")
     public void user_enters_username_and_password() {
         WebElement usernameField = driver.findElement(By.id("txtUsername"));
@@ -29,17 +36,12 @@ public class LoginSteps {
 
         WebElement passwordField = driver.findElement(By.id("txtPassword"));
         passwordField.sendKeys("Hum@nhrm123");
+
     }
 
-    @When("user clicks on login button")
-    public void user_clicks_on_login_button() {
-        WebElement LoginButton = driver.findElement(By.id("btnLogin"));
-        LoginButton.click();
-    }
 
     @Then("user is successfully logged in")
     public void user_is_successfully_logged_in() {
         System.out.println("Test passed");
     }
-
 }
