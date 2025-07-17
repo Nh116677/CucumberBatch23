@@ -1,5 +1,6 @@
 Feature: Login Functionality
 
+  @sprint14  @smoke @regression
   Scenario: Valid admin login
     Given user is navigated to HRMS application
     When user enters username and password

@@ -19,3 +19,15 @@ user story - search employee
 
 Search employee by id
 Search employee by name
+
+Rules of background -
+til the time flow is not broken in all the scenarios of one feature file, we can keep steps under background
+background is applicable for only one feature file, it means for every feature file, background will be different
+background will be executed before every single scenario of that feature file
+
+hooks - we keep pre conditions and post conditions for the whole project for all scenarios in it
+hooks must be placed under steps package
+
+Order of execution
+hooks -> background -> scenario -> hooks
+
