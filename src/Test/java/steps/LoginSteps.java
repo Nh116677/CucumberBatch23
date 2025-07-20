@@ -7,13 +7,16 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import pages.LoginPage;
 import utils.CommonMethods;
 
 import java.time.Duration;
 
 public class LoginSteps extends CommonMethods {
 
-    //WebDriver driver;
+    // WebDriver driver;
+
+    LoginPage loginPage = new LoginPage();
 
     @Given("user is navigated to HRMS application")
     public void user_is_navigated_to_hrms_application() {
@@ -25,21 +28,21 @@ public class LoginSteps extends CommonMethods {
 
     @When("user clicks on login button")
     public void user_clicks_on_login_button() {
-        WebElement loginButton = driver.findElement(By.id("btnLogin"));
-        loginButton.click();
+        //  WebElement loginButton = driver.findElement(By.id("btnLogin"));
+        //loginButton.click();
+        click(loginPage.loginButton);
 
     }
 
     @When("user enters username and password")
     public void user_enters_username_and_password() {
-        WebElement usernameField = driver.findElement(By.id("txtUsername"));
-        usernameField.sendKeys("admin");
+        //  WebElement usernameField = driver.findElement(By.id("txtUsername"));
+        loginPage.usernameField.sendKeys("admin");
 
-        WebElement passwordField = driver.findElement(By.id("txtPassword"));
-        passwordField.sendKeys("Hum@nhrm123");
+        //  WebElement passwordField = driver.findElement(By.id("txtPassword"));
+        loginPage.passwordField.sendKeys("Hum@nhrm123");
 
     }
-
 
     @Then("user is successfully logged in")
     public void user_is_successfully_logged_in() {

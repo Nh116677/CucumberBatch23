@@ -46,4 +46,6 @@ rules - data table -
 background executes one times
 hook executes one times
 
+page object model design pattern - it allows us to create classes as per the page of the app
+
 
