@@ -16,10 +16,11 @@ public class LoginPage extends CommonMethods {
     @FindBy(id="btnLogin")
     public WebElement loginButton;
 
+    @FindBy(id="welcome")
+    public WebElement welcomeMessageLoc;
+
     public LoginPage(){
         PageFactory.initElements(driver, this);
     }
 
 }
-
-

@@ -16,7 +16,7 @@ public class AddEmployeeSteps extends CommonMethods {
 
 
 
-    AddEmployeePage addEmployeePage = new AddEmployeePage();
+    //AddEmployeePage addEmployeePage = new AddEmployeePage();
 
     @When("user clicks on add employee option")
     public void user_clicks_on_add_employee_option() {

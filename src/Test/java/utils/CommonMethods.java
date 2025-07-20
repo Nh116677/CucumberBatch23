@@ -22,7 +22,7 @@ public class CommonMethods extends PageInitialiser {
     public static WebDriver driver;
 
     public void openBrowserAndLaunchApplication() {
-        initializePageObjects();
+
         switch (ConfigReader.read("browser")){
 
             case "Chrome":
@@ -46,7 +46,7 @@ public class CommonMethods extends PageInitialiser {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         driver.get(ConfigReader.read("url"));
         //this ,method will call all the objects
-        // initializePageObjects();
+        initializePageObjects();
 
     }
 

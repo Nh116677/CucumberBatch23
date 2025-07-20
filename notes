@@ -1,29 +1,33 @@
-Cucumber Class 1:
+Class 1 - Cucumber Live -
 
-To achieve proper reporting, I need cucumber to reuse the code and save time on scripting, executing the piece of code that we want.  Easily readable test cases in Cucumber
+to get proper reporting, I need cucumber
+to reuse  the code and save time for scripting,
+execute code the piece of code, which we want.
+easily readable test cases in cucumber
 
-Maven
-Pom.xml file – it is the backbone of our Maven project
-Scr – under this, we have the main and test folders
-Main – where we write the code to develop the application
-Test – where we write the code to test the application
+maven -
+pom.xml file - it is the backbone of our maven project
+src - under this, we have main and test folder
+main - where we write the code to develop the application
+test - where we write the code to test the application
 
-Under Test
-Java – for all java stuff
-Resources – for all non java stuff
+under test -
+java - for all java stuff
+resources - for all non java stuff
 
------------------------------------------------------------------------------------------------------
-User story - Login functionality
+----------------------------------------------------------------
+user story  - Login functionality
 
 user story - search employee
 
 Search employee by id
 Search employee by name
 
-Rules of background -
-til the time flow is not broken in all the scenarios of one feature file, we can keep steps under background
+rules of background -
+till the time flow is not broken in all the scenarios of one feature file,  we can keep steps under background
 background is applicable for only one feature file, it means for every feature file, background will be different
 background will be executed before every single scenario of that feature file
+
 
 hooks - we keep pre conditions and post conditions for the whole project for all scenarios in it
 hooks must be placed under steps package
@@ -33,19 +37,23 @@ hooks -> background -> scenario -> hooks
 
 first - we added employee using hard coded data
 then - we added employee using parameter
--- as per the standard of framework, I need to achieve data driven testing
+-- as per the standards of framework, I need to achieve data driven testing
 -- my one test case should execute against multiple sets of data
-To achieve this, we implement example table
-- save more time, we use data table
+to achieve this, we implement examples table
+--to save more time, we use data table
 
-rules - for example table -
+rules - for examples table -
 background executes multiple times
 hooks executes multiple times
 
-rules - data table -
+rules - for data table -
 background executes one times
-hook executes one times
+hooks executes one times
+
+
 
 page object model design pattern - it allows us to create classes as per the page of the app
+in page class, we keep all the locators belong to that page/screen
 
-
+Assert.asserttrue
+Assert.assertequals
