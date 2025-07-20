@@ -31,3 +31,19 @@ hooks must be placed under steps package
 Order of execution
 hooks -> background -> scenario -> hooks
 
+first - we added employee using hard coded data
+then - we added employee using parameter
+-- as per the standard of framework, I need to achieve data driven testing
+-- my one test case should execute against multiple sets of data
+To achieve this, we implement example table
+- save more time, we use data table
+
+rules - for example table -
+background executes multiple times
+hooks executes multiple times
+
+rules - data table -
+background executes one times
+hook executes one times
+
+

@@ -13,8 +13,10 @@ import org.junit.runner.RunWith;
         //when we set the value of dry run to true, it stops execution and generate all missing step definition
         //when we have to execute, we set the value to false
         dryRun = false,
-        tags = "@khan"
+        tags = "@datatable"
 )
+
+
 
 public class TestRunner {
 }
