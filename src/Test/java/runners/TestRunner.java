@@ -4,6 +4,8 @@ import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 import org.junit.runner.RunWith;
 
+
+
 @RunWith(Cucumber.class)
 @CucumberOptions(
         //path of the feature directory or feature file
@@ -15,9 +17,9 @@ import org.junit.runner.RunWith;
         dryRun = false,
         tags = "@khan",
         //pretty plugin prints all the steps in console
-        plugin = {"pretty", "html:target/cucumber.html", "json:target/cucumber.json",
-                "rerun:target/failed.txt"}
+        plugin = {"pretty", "html:target/cucumber.html", "json:target/cucumber.json","rerun:target/failed.txt"}
 )
+
 
 public class TestRunner {
 }
