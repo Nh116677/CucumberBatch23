@@ -26,7 +26,7 @@ public class AddEmployeeSteps extends CommonMethods {
 
     @When("user enters firstname middlename and lastname")
     public void user_enters_firstname_middlename_and_lastname() {
-        //WebElement firstNameLoc = driver.findElement(By.id("firstName"));
+        //WebElement  firstNameLoc = driver.findElement(By.id("firstName"));
         sendText("Rabab", addEmployeePage.firstNameLoc);
 
         // WebElement middleNameLoc = driver.findElement(By.id("middleName"));
