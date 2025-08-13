@@ -15,7 +15,7 @@ Feature: Add employee scenarios
     Then employee is added successfully
 
 
-  @params
+  @params @dbTesting
   Scenario: Adding one employee using params
     And user enters "lana" and "ms" and "smith"
     And user clicks on save button

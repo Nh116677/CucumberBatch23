@@ -2,10 +2,12 @@ package steps;
 
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import pages.AddEmployeePage;
 import utils.CommonMethods;
+import utils.DbReader;
 import utils.ExcelReader;
 
 import java.io.IOException;
@@ -14,9 +16,11 @@ import java.util.Map;
 
 public class AddEmployeeSteps extends CommonMethods {
 
-
-
     //AddEmployeePage addEmployeePage = new AddEmployeePage();
+    String employeeId;
+    String expectedFN;
+    String expectedMN;
+    String expectedLN;
 
     @When("user clicks on add employee option")
     public void user_clicks_on_add_employee_option() {
@@ -34,6 +38,11 @@ public class AddEmployeeSteps extends CommonMethods {
 
         // WebElement lastNameLoc = driver.findElement(By.id("lastName"));
         sendText("karimzada", addEmployeePage.lastNameLoc);
+        expectedFN = fn;
+        expectedMN = mn;
+        expectedLN = ln;
+        // gets the id of employeee from add employee page
+        employeeId = addEmployeePage.employeeIDField.getAttribute("value");
 
     }
 
@@ -45,6 +54,15 @@ public class AddEmployeeSteps extends CommonMethods {
     }
     @Then("employee is added successfully")
     public void employee_is_added_successfully() {
+        String query ="select emp_firstname,emp_middle_name, emp_lastname from hs_hr_employees where employee_id = "+ employeeId;
+        List<Map<String, String>> dataFromDb = DbReader.fetch(query);
+        String actualFN = dataFromDb.get(0).get("emp_firstname");
+        String actualMN = dataFromDb.get(0).get("emp_middle_name");
+        String actualLN = dataFromDb.get(0).get("emp_lastname");
+        Assert.assertArrayEquals(expectedFN, actualFN);
+        Assert.assertArrayEquals(expectedMN, actualMN);
+        Assert.assertArrayEquals(expectedLN, actualLN);
+
         System.out.println("employee added");
     }
 

@@ -15,7 +15,7 @@ import org.junit.runner.RunWith;
         //when we set the value of dry run to true, it stops execution and generate all missing step definition
         //when we have to execute, we set the value to false
         dryRun = true,
-        tags = "@datatable"
+        tags = "@dbTesting"
         //pretty plugin prints all the steps in console
         //plugin = {"pretty", "html:target/cucumber.html", "json:target/cucumber.json","rerun:target/failed.txt"}
 )

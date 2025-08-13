@@ -17,6 +17,9 @@ public class AddEmployeePage extends CommonMethods {
     @FindBy(id="lastName")
     public WebElement lastNameLoc;
 
+    @FindBy(id = "employeeId")
+    public WebElement employeeIDField;
+
     @FindBy(id="btnSave")
     public WebElement saveButton;
 
