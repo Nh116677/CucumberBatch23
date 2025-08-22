@@ -17,7 +17,7 @@ public class DbReader {
         //Establish the connection between java program and the database
         try (Connection connection = DriverManager.getConnection(dbURL, userName, password);
              //takes your queries to the database and bring the results back to Java program
-             Statement statement = connection.createStatement();{
+             Statement statement = connection.createStatement()){
 
             ResultSet rows = statement.executeQuery(query);
             //Extracting all the info like column names from the statement
