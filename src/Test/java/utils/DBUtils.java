@@ -6,40 +6,37 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-public class DbReader {
+public class DBUtils {
 
-    public static List<Map<String, String>> fetch(String query){
+    public static void main(String[] args) {
+
+    }
+    public static List<Map<String,String>> fetch(String query){
+
         String dbURL=ConfigReader.read("dbURL");
         String userName=ConfigReader.read("dbUserName");
         String password=ConfigReader.read("dbPassword");
 
-        List<Map<String, String>> TblData = new ArrayList<>();
-        //Establish the connection between java program and the database
-        try (Connection connection = DriverManager.getConnection(dbURL, userName, password);
-             //takes your queries to the database and bring the results back to Java program
-             Statement statement = connection.createStatement()){
+        List<Map<String,String>> tableData=new ArrayList<>();
+        try(Connection connection = DriverManager.getConnection(dbURL, userName, password);){
+            Statement statement = connection.createStatement();
+            ResultSet rs = statement.executeQuery(query);
+            ResultSetMetaData rsm=rs.getMetaData();
+            while (rs.next()) {
 
-            ResultSet rows = statement.executeQuery(query);
-            //Extracting all the info like column names from the statement
-            ResultSetMetaData headerInfo = rows.getMetaData();
-            //Step 1 extract a row
-            while (rows.next()){
-                //create a map to store the info from that row into map
-                Map<String, String> rowMap = new LinkedHashMap<>();
-                for (int i = 1; i <= headerInfo.getColumnCount(); i++) {
-                    //extract all the column info and store it inside the map
-                    String key = headerInfo.getColumnClassName(i);
-                    String value = rows.getString(i);
-                    rowMap.put(key, value);
-
+                Map<String,String> rowMap=new LinkedHashMap<>();
+                for (int i = 1; i <= rsm.getColumnCount(); i++) {
+                    String key=rsm.getColumnLabel(i);
+                    String value=rs.getString(i);
+                    rowMap.put(key,value);
                 }
-                TblData.add(rowMap);
+                tableData.add(rowMap);
+
+
             }
-
-        }catch (SQLException e){
-            e.printStackTrace();
+        }catch (SQLException sqlException){
+            sqlException.printStackTrace();
         }
-        return TblData;
-
+        return tableData;
     }
 }

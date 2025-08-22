@@ -57,3 +57,28 @@ in page class, we keep all the locators belong to that page/screen
 
 Assert.asserttrue
 Assert.assertequals
+
+Artifacts = reports
+
+Rest Assured -
+To automate API's, we need a tool, i.e rest assured
+given - pre condition - preparing the request
+when - taking any action - performing the action/hitting the endpoint
+then - expected result - verifying the resullts
+
+3 point formula -
+prepare the request - given
+send the request - when
+get/validate the response - then
+
+
+
+
+
+
+
+
+
+
+
+

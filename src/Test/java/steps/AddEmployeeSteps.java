@@ -5,9 +5,8 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import pages.AddEmployeePage;
 import utils.CommonMethods;
-import utils.DbReader;
+import utils.DBUtils;
 import utils.ExcelReader;
 
 import java.io.IOException;
@@ -16,11 +15,15 @@ import java.util.Map;
 
 public class AddEmployeeSteps extends CommonMethods {
 
-    //AddEmployeePage addEmployeePage = new AddEmployeePage();
-    String employeeId;
+
+
     String expectedFN;
     String expectedMN;
     String expectedLN;
+    String empId;
+
+
+    //  AddEmployeePage addEmployeePage = new AddEmployeePage();
 
     @When("user clicks on add employee option")
     public void user_clicks_on_add_employee_option() {
@@ -30,7 +33,7 @@ public class AddEmployeeSteps extends CommonMethods {
 
     @When("user enters firstname middlename and lastname")
     public void user_enters_firstname_middlename_and_lastname() {
-        //WebElement  firstNameLoc = driver.findElement(By.id("firstName"));
+        //WebElement firstNameLoc = driver.findElement(By.id("firstName"));
         sendText("Rabab", addEmployeePage.firstNameLoc);
 
         // WebElement middleNameLoc = driver.findElement(By.id("middleName"));
@@ -38,11 +41,6 @@ public class AddEmployeeSteps extends CommonMethods {
 
         // WebElement lastNameLoc = driver.findElement(By.id("lastName"));
         sendText("karimzada", addEmployeePage.lastNameLoc);
-        expectedFN = fn;
-        expectedMN = mn;
-        expectedLN = ln;
-        // gets the id of employeee from add employee page
-        employeeId = addEmployeePage.employeeIDField.getAttribute("value");
 
     }
 
@@ -52,32 +50,32 @@ public class AddEmployeeSteps extends CommonMethods {
         click(addEmployeePage.saveButton);
 
     }
-    @Then("employee is added successfully")
-    public void employee_is_added_successfully() {
-        String query ="select emp_firstname,emp_middle_name, emp_lastname from hs_hr_employees where employee_id = "+ employeeId;
-        List<Map<String, String>> dataFromDb = DbReader.fetch(query);
-        String actualFN = dataFromDb.get(0).get("emp_firstname");
-        String actualMN = dataFromDb.get(0).get("emp_middle_name");
-        String actualLN = dataFromDb.get(0).get("emp_lastname");
-        Assert.assertArrayEquals(expectedFN, actualFN);
-        Assert.assertArrayEquals(expectedMN, actualMN);
-        Assert.assertArrayEquals(expectedLN, actualLN);
 
-        System.out.println("employee added");
-    }
 
 
     @When("user enters {string} and {string} and {string}")
     public void user_enters_and_and(String firstname, String middlename, String lastname) {
-        //order of the parameter is imp bcz it will fetch the values in the order from feature
-        //  WebElement firstNameLoc = driver.findElement(By.id("firstName"));
         sendText(firstname, addEmployeePage.firstNameLoc);
-
-        //   WebElement middleNameLoc = driver.findElement(By.id("middleName"));
         sendText(middlename, addEmployeePage.middleNameLoc);
-
-        // WebElement lastNameLoc = driver.findElement(By.id("lastName"));
         sendText(lastname, addEmployeePage.lastNameLoc);
+        expectedFN =firstname;
+        expectedMN =middlename;
+        expectedLN =lastname;
+        empId=addEmployeePage.empId.getAttribute("value");
+
+    }
+
+
+    @Then("employee is added successfully")
+    public void employee_is_added_successfully() {
+        String query="select emp_firstname,emp_middle_name,emp_lastname from hs_hr_employees where employee_id="+empId;
+        List<Map<String,String>> fromDb= DBUtils.fetch(query);
+        String actualFN=fromDb.get(0).get("emp_firstname");
+        String actualMN=fromDb.get(0).get("emp_middle_name");
+        String actualLN=fromDb.get(0).get("emp_lastname");
+        Assert.assertEquals(expectedFN,actualFN);
+        Assert.assertEquals(expectedMN,actualMN);
+        Assert.assertEquals(expectedLN,actualLN);
     }
 
 
