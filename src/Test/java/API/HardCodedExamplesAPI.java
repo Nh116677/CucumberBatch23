@@ -16,7 +16,7 @@ import org.junit.runners.MethodSorters;
 public class HardCodedExamplesAPI {
 
     String baseURI = RestAssured.baseURI = "http://hrm.syntaxtechs.net/syntaxapi/api";
-    String token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NTU5MjI3ODMsImlzcyI6ImxvY2FsaG9zdCIsImV4cCI6MTc1NTk2NTk4MywidXNlcklkIjoiNzQ1MSJ9.5TxoFDM70duIrQwY4PjLCwhnOSlvfzz90mopjCSIyNs";
+    String token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NTU5NjAwNjMsImlzcyI6ImxvY2FsaG9zdCIsImV4cCI6MTc1NjAwMzI2MywidXNlcklkIjoiNzQ1MSJ9.ztaaFV6v--PnHy-Yod4L--vLyuZ6d4-YMcUHdd3fqoU";
     static String employee_id;
 
 

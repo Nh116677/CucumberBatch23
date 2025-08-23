@@ -15,11 +15,9 @@ import java.util.Map;
 
 public class AddEmployeeSteps extends CommonMethods {
 
-
-
-    String expectedFN;
-    String expectedMN;
-    String expectedLN;
+    String fn;
+    String mn;
+    String ln;
     String empId;
 
 
@@ -58,10 +56,10 @@ public class AddEmployeeSteps extends CommonMethods {
         sendText(firstname, addEmployeePage.firstNameLoc);
         sendText(middlename, addEmployeePage.middleNameLoc);
         sendText(lastname, addEmployeePage.lastNameLoc);
-        expectedFN =firstname;
-        expectedMN =middlename;
-        expectedLN =lastname;
-       // empId=addEmployeePage.empId.getAttribute("value");
+        fn = firstname;
+        mn = middlename;
+        ln = lastname;
+        empId = addEmployeePage.empId.getAttribute("value");
 
     }
 
@@ -69,13 +67,13 @@ public class AddEmployeeSteps extends CommonMethods {
     @Then("employee is added successfully")
     public void employee_is_added_successfully() {
         String query="select emp_firstname,emp_middle_name,emp_lastname from hs_hr_employees where employee_id="+empId;
-        List<Map<String,String>> fromDb= DBUtils.fetch(query);
+        List<Map<String,String>> fromDb= DBUtils.
         String actualFN=fromDb.get(0).get("emp_firstname");
         String actualMN=fromDb.get(0).get("emp_middle_name");
         String actualLN=fromDb.get(0).get("emp_lastname");
-        Assert.assertEquals(expectedFN,actualFN);
-        Assert.assertEquals(expectedMN,actualMN);
-        Assert.assertEquals(expectedLN,actualLN);
+        Assert.assertEquals(fn,actualFN);
+        Assert.assertEquals(mn,actualMN);
+        Assert.assertEquals(ln,actualLN);
     }
 
 

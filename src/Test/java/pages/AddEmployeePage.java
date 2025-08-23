@@ -1,5 +1,6 @@
 package pages;
 
+import io.cucumber.core.internal.com.fasterxml.jackson.databind.DatabindContext;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -22,6 +23,10 @@ public class AddEmployeePage extends CommonMethods {
 
     @FindBy(id="btnSave")
     public WebElement saveButton;
+
+    @FindBy(xpath = "//input[@id='employeeID']")
+    public WebElement empId;
+
 
 
     public AddEmployeePage(){
