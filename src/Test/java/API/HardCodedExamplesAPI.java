@@ -21,7 +21,7 @@ public class HardCodedExamplesAPI {
 
 
     @Test
-    public void acreateEmployee(){
+    public void createEmployee(){
         //preparing the request
         RequestSpecification request = given().
                 header("Content-Type","application/json").

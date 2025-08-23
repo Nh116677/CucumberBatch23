@@ -61,7 +61,7 @@ public class AddEmployeeSteps extends CommonMethods {
         expectedFN =firstname;
         expectedMN =middlename;
         expectedLN =lastname;
-        empId=addEmployeePage.empId.getAttribute("value");
+       // empId=addEmployeePage.empId.getAttribute("value");
 
     }
 
